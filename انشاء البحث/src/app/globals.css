@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-tajawal), "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+:root {
+  --background: #f9fafb;
+  --foreground: #111827;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Print styles for PDF/Word exports */
+@media print {
+  @page {
+    size: A4;
+    margin: 1cm;
+  }
+  
+  body {
+    background-color: white !important;
+    font-family: "Times New Roman", serif;
+    color: black;
+  }
+
+  header, footer, .no-print, button, ads, .ad-banner {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .research-content {
+    direction: rtl;
+    text-align: right;
+    line-height: 1.6;
+    font-size: 14pt;
+    padding: 0;
+    margin: 0;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+}
+/* Custom Animations */
+@keyframes pulse-shadow {
+  0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+  70% { box-shadow: 0 0 0 15px rgba(245, 158, 11, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-pulse-shadow {
+  animation: pulse-shadow 2s infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
